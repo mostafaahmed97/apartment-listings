@@ -1,12 +1,6 @@
+import app from './app';
 import { config } from './config';
-import express from 'express';
 import { initDbConnection } from './db';
-
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send('OK');
-});
 
 async function start() {
   await initDbConnection();
