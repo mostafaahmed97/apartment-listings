@@ -1,11 +1,13 @@
 import express, { ErrorRequestHandler } from 'express';
 
 import { router as listingRoutes } from './listing/routes';
+import morgan from 'morgan';
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(morgan('common'));
 
 app.get('/', (req, res) => {
   res.send('OK');
