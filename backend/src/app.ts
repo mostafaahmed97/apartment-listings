@@ -1,6 +1,6 @@
 import express, { ErrorRequestHandler } from 'express';
 
-import { router as listingRoutes } from './listings.routes';
+import { router as listingRoutes } from './listing/routes';
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use('/listings', listingRoutes);
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   console.log({ err });
 
-  res.status(500).send('');
+  res.status(500).send(err.message || 'Error occured');
 };
 
 app.use(errorHandler);
