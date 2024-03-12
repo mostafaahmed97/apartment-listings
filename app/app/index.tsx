@@ -41,7 +41,7 @@ export default function Page() {
           return (
             <View
               key={listing.id}
-              className="w-full mb-4 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+              className="w-full mb-4 border border-gray-200 rounded-lg shadow-md"
             >
               <Pressable
                 onPress={() => {
@@ -66,14 +66,14 @@ export default function Page() {
 
               <View className="p-5">
                 <Link href={`/listing/${listing.id}`}>
-                  <Text className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  <Text className="mb-2 text-xl font-bold tracking-tight text-gray-900">
                     {listing.name}
                   </Text>
                 </Link>
-                <Text className="mb-2 font-normal text-gray-700 dark:text-gray-400">
+                <Text className="mb-2 font-normal text-gray-700">
                   {listing.location}
                 </Text>
-                <Text className="text-xs font-normal text-gray-700 dark:text-gray-400">
+                <Text className="text-xs font-normal text-gray-700">
                   {listing.bedrooms} Bedroom{listing.bedrooms > 1 ? 's' : ''},{' '}
                   {listing.bathrooms} Bathroom
                   {listing.bathrooms > 1 ? 's' : ''}
