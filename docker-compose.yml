@@ -1,5 +1,18 @@
 services:
   db:
+    container_name: listings-db
     build: ./db
     ports:
       - "27017:27017"
+
+  web:
+    container_name: listings-web-app
+    build: ./web
+    ports:
+      - "3000:3000"
+  
+  backend:
+    container_name: listings-backend
+    build: ./backend
+    ports:
+      - "5000:5000"
