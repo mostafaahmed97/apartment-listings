@@ -1,6 +1,13 @@
-import { FlatList, Image, Text, View } from 'react-native';
+import {
+  FlatList,
+  Image,
+  Pressable,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
+import { Link, router } from 'expo-router';
 
-import { Link } from 'expo-router';
 import { PaginatedListings } from './types';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
@@ -29,42 +36,53 @@ export default function Page() {
 
       {isError && <Text>Error occured</Text>}
 
-      {data?.data.map(listing => {
-        return (
-          <View
-            key={listing.id}
-            className="max-w-sm mb-4 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
-          >
-            <Link href={`/listing/${listing.id}`}>
-              <Image
-                className="rounded-t-lg"
-                source={{ uri: listing.images[0] }}
-                resizeMode="contain"
-                style={{
-                  resizeMode: 'cover',
-                  height: '100%',
-                  width: '100%',
+      <ScrollView>
+        {data?.data.map(listing => {
+          return (
+            <View
+              key={listing.id}
+              className="w-full mb-4 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+            >
+              <Pressable
+                onPress={() => {
+                  router.push(`/listing/${listing.id}`);
                 }}
-              />
-            </Link>
+              >
+                <View
+                  className="w-full mb-2"
+                  style={{
+                    height: 200,
+                    width: '100%',
+                  }}
+                >
+                  <Image
+                    className="rounded-b-none rounded-xl"
+                    source={{ uri: listing.images[0] }}
+                    alt=""
+                    style={{ resizeMode: 'cover', height: 200, width: '100%' }}
+                  />
+                </View>
+              </Pressable>
 
-            <View className="p-5">
-              <Link href={`/listing/${listing.id}`}>
-                <Text className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {listing.name}
+              <View className="p-5">
+                <Link href={`/listing/${listing.id}`}>
+                  <Text className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {listing.name}
+                  </Text>
+                </Link>
+                <Text className="mb-2 font-normal text-gray-700 dark:text-gray-400">
+                  {listing.location}
                 </Text>
-              </Link>
-              <Text className="mb-2 font-normal text-gray-700 dark:text-gray-400">
-                {listing.location}
-              </Text>
-              <Text className="text-xs font-normal text-gray-700 dark:text-gray-400">
-                {listing.bedrooms} Bedroom{listing.bedrooms > 1 ? 's' : ''},{' '}
-                {listing.bathrooms} Bathroom{listing.bathrooms > 1 ? 's' : ''}
-              </Text>
+                <Text className="text-xs font-normal text-gray-700 dark:text-gray-400">
+                  {listing.bedrooms} Bedroom{listing.bedrooms > 1 ? 's' : ''},{' '}
+                  {listing.bathrooms} Bathroom
+                  {listing.bathrooms > 1 ? 's' : ''}
+                </Text>
+              </View>
             </View>
-          </View>
-        );
-      })}
+          );
+        })}
+      </ScrollView>
     </View>
   );
 }

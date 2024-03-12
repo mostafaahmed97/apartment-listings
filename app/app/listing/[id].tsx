@@ -1,4 +1,4 @@
-import { Image, Text, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
 import { Link, useLocalSearchParams } from 'expo-router';
 
 import { Listing } from '../types';
@@ -40,7 +40,7 @@ export default function Page() {
   const amenities = listing?.amenities || [];
 
   return (
-    <>
+    <ScrollView className="p-4">
       <Link href="/" className="mb-2 text-sm text-gray-500">
         <Text>See All</Text>
       </Link>
@@ -53,13 +53,22 @@ export default function Page() {
 
       <View className="flex flex-col gap-1">
         <View className="flex gallery">
-          <Image
-            className="mb-2 rounded-xl"
-            src={listing?.images[0]}
-            alt=""
-            height={200}
-            width={200}
-          />
+          <View
+            style={{
+              height: 200,
+              width: '100%',
+            }}
+          >
+            <Image
+              className="mb-2 rounded-xl"
+              source={{ uri: listing?.images[0] }}
+              style={{
+                resizeMode: 'cover',
+                height: 200,
+                width: '100%',
+              }}
+            />
+          </View>
 
           <Text className="block mt-2 mb-1 font-bold text-gray-700">
             Amenities
@@ -85,18 +94,18 @@ export default function Page() {
             return (
               <View
                 key={detail.key}
-                className="flex flex-col items-center justify-center p-4 px-6 rounded-lg shadow-xl h-min"
+                className="flex flex-col items-center justify-center p-8 rounded-lg shadow-xl h-min"
               >
                 <Text className="mb-1 text-xs text-gray-500">{detail.key}</Text>
 
-                <View className="font-bold">
-                  <Text>{detail.value}</Text>
+                <View>
+                  <Text className="font-bold">{detail.value}</Text>
                 </View>
               </View>
             );
           })}
         </View>
       </View>
-    </>
+    </ScrollView>
   );
 }
