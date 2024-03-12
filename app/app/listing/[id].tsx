@@ -8,7 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 async function getListing(id: string) {
   try {
     const res = await axios.get<Listing>(
-      `http://192.168.1.101:3000/listings/${id}`
+      `http://192.168.1.101:5000/listings/${id}`
     );
 
     return res.data;

@@ -7,22 +7,9 @@ class ListingService {
     return listing;
   }
 
-  async all(page: number = 1) {
-    const limit = 5;
-
-    const skip = (page - 1) * limit;
-
-    const [listings, total] = await Promise.all([
-      Listing.find().limit(limit).skip(skip),
-      Listing.find().countDocuments(),
-    ]);
-
-    return {
-      data: listings,
-      page,
-      limit,
-      total,
-    };
+  async all() {
+    const listings = await Listing.find();
+    return listings;
   }
 
   async find(id: string) {

@@ -1,21 +1,14 @@
-import {
-  FlatList,
-  Image,
-  Pressable,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { Link, router } from 'expo-router';
 
-import { PaginatedListings } from './types';
+import { Listing } from './types';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 
 async function getListings() {
   try {
-    const res = await axios.get<PaginatedListings>(
-      'http://192.168.1.101:3000/listings'
+    const res = await axios.get<Listing[]>(
+      'http://192.168.1.101:5000/listings'
     );
 
     return res.data;
@@ -25,19 +18,19 @@ async function getListings() {
 }
 
 export default function Page() {
-  const { data, isLoading, isError } = useQuery({
+  const query = useQuery({
     queryKey: ['listings'],
     queryFn: getListings,
   });
 
   return (
     <View className="p-2 bg-white">
-      {isLoading && <Text>Loading...</Text>}
+      {query.isLoading && <Text>Loading...</Text>}
 
-      {isError && <Text>Error occured</Text>}
+      {query.isError && <Text>Error occured</Text>}
 
       <ScrollView>
-        {data?.data.map(listing => {
+        {query.data?.map(listing => {
           return (
             <View
               key={listing.id}

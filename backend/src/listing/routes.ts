@@ -5,8 +5,7 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    const page = Number(req.query.page) || 1;
-    const results = await listingService.all(page);
+    const results = await listingService.all();
 
     res.send(results);
   } catch (error) {

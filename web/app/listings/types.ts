@@ -9,10 +9,3 @@ export type Listing = {
   space: number;
   amenities: string[];
 };
-
-export type PaginatedListings = {
-  data: Listing[];
-  page: number;
-  total: number;
-  limit: number;
-};
