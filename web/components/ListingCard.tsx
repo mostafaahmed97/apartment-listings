@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Listing } from './types';
+import { Listing } from '@/app/listings/types';
 
 type ListingCardProps = {
   listing: Listing;

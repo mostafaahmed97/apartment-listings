@@ -1,5 +1,5 @@
 import { Listing } from './types';
-import ListingCard from './ListingCard';
+import ListingCard from '@/components/ListingCard';
 
 async function getListingsData(page: number = 1) {
   const res = await fetch(`${process.env.API_URL}/listings?page=${page}`);
