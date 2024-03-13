@@ -1,6 +1,7 @@
 import express, { ErrorRequestHandler } from 'express';
 
 import cors from 'cors';
+import { errorHandlingMiddleware } from './error';
 import { router as listingRoutes } from './listing/routes';
 import morgan from 'morgan';
 
@@ -18,12 +19,6 @@ app.get('/', (req, res) => {
 app.use('/listings', listingRoutes);
 
 // global error handler
-const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-  console.log({ err });
-
-  res.status(500).send(err.message || 'Error occured');
-};
-
-app.use(errorHandler);
+app.use(errorHandlingMiddleware);
 
 export default app;

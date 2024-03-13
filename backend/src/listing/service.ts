@@ -1,4 +1,5 @@
 import { Listing } from './model';
+import { NotFoundError } from '../error';
 
 class ListingService {
   async create(payload: any) {
@@ -15,7 +16,9 @@ class ListingService {
   async find(id: string) {
     const listing = await Listing.findById(id);
 
-    if (!listing) throw new Error('Not found');
+    if (!listing) {
+      throw new NotFoundError('Listing not found');
+    }
 
     return listing;
   }
