@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Apartment Complex",
+    "price": 220000,
+    "location": "North Coast",
+    "images": [
+      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg"
+    ],
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "space": 1800,
+    "amenities": ["Bowling Alley", "Garden", "Clubhouse", "Bicycle Lanes"]
+  },
+  {
+    "name": "Villa",
+    "price": 1220000,
+    "location": "Venice",
+    "images": [
+      "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg"
+    ],
+    "bedrooms": 4,
+    "bathrooms": 2,
+    "space": 2200,
+    "amenities": ["Jet Skis", "Private Beach"]
+  },
+  {
+    "name": "Farm House",
+    "price": 150000,
+    "location": "Damascus",
+    "images": [
+      "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+    ],
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "space": 400,
+    "amenities": ["Garden", "Two Stories", "Bicycle Lanes", "Historical Places"]
+  },
+  {
+    "name": "Two Storied House",
+    "price": 20000,
+    "location": "North London",
+    "images": [
+      "https://images.pexels.com/photos/1029599/pexels-photo-1029599.jpeg"
+    ],
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "space": 180,
+    "amenities": ["Premier League Matches", "London Bus", "Fish & Chips ?"]
+  },
+  {
+    "name": "Vintage American Home",
+    "price": 12000000,
+    "location": "Los Angeles",
+    "images": [
+      "https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg"
+    ],
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "space": 400,
+    "amenities": ["Burger", "Beachside"]
+  },
+  {
+    "name": "Riverside Home",
+    "price": 500000,
+    "location": "Netherlands",
+    "images": [
+      "https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg"
+    ],
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "space": 323,
+    "amenities": ["Windmills", "River Trips"]
+  }
+]

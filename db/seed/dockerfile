@@ -1,0 +1,5 @@
+FROM mongo
+
+COPY init.json /init.json
+
+CMD mongoimport --host listings-db --db listings --collection listings --drop --type json --file /init.json --jsonArray

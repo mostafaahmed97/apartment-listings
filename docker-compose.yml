@@ -5,14 +5,23 @@ services:
     ports:
       - "27017:27017"
 
+  seed-db:
+    build: ./db/seed
+    depends_on:
+      - db
+
   web:
     container_name: listings-web-app
     build: ./web
     ports:
       - "3000:3000"
+    depends_on:
+      - db
   
   backend:
     container_name: listings-backend
     build: ./backend
     ports:
       - "5000:5000"
+    depends_on:
+      - db
