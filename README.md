@@ -181,15 +181,16 @@ The mobile app is a close as possible translation of the web app using
 - **Expo**, for scaffolding app & routing.
 - **NativeWind**, a port of Tailwind to React Native.
 
-![](./docs/images/app-1.jpg)
+<img src="./docs/images/app-1.jpg" width="150">
 
-![](./docs/images/app-2.jpg)
+<img src="./docs/images/app-2.jpg" width="150">
 
 ## :toolbox: Points to improve
 
 Generally, the following points can be implemented to improve maintainability & developer experience. Because of time constraints I decided to go without them.
 
 - Paginating data in back & front ends.
+- Multi step docker builds to reduce image sizes.
 - Setting up linting rules.
 - Setting up pre-commit hooks for formatting & enforcing commit naming conventions.
 - Adding unit tests to protect against unintended side effects.
