@@ -14,7 +14,7 @@
   - [Backend](#backend)
   - [Web App](#web-app)
 
-Listings Hero is a simple listing appartments app. This repository hosts the backend, web application, db & mobile app.
+Listings Hero is a simple apartment listing app. This repository hosts the backend, web application, db & mobile app.
 
 ![](./docs/images/web-1.png)
 
@@ -46,7 +46,7 @@ The web app should now be accessible at `http://localhost:3000` & the backend at
 
 ### :ledger: Database
 
-The database used is MongoDB, with the following schema to represent apartment listings.
+The database used is MongoDB, with the following schema to represent apartment listings:
 
 ```typescript
 name: string;
@@ -167,7 +167,7 @@ Web application is built using the following frameworks/libs:
 It has the following paths:
 
 - `/listings`, a screen to show all listings.
-- `/listings/${id}`, a screen to show a listing details.
+- `/listings/${id}`, a screen to show listing details.
 
 ![](./docs/images/web-1.png) 
 
@@ -195,7 +195,7 @@ Generally, the following points can be implemented to improve maintainability & 
 - Adding unit tests to protect against unintended side effects.
 - Detailed setup instructions for each component to aid local development.
 
-More specifically, the following can be done for each component
+More specifically, the following can be done for each component:
 
 ### Backend
 
